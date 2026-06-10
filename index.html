@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankrah Sachiel Adom Junior — Academic Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --white:       #ffffff;
+      --ink:         #0d1b3e;
+      --ink-muted:   #3a5080;
+      --ink-faint:   #7a95c0;
+      --surface:     #eef3fb;
+      --border:      #c5d5ef;
+      --accent:      #1a42a0;
+      --tag-bg:      #dce8f8;
+      --tag-text:    #1a42a0;
+      --status-under:#b45309;
+      --status-sub:  #6b7280;
+      --status-acc:  #15803d;
+
+      --ff-serif:  'EB Garamond', Georgia, serif;
+      --ff-sans:   'Inter', system-ui, sans-serif;
+
+      --max-w: 960px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-sans);
+      background: var(--white);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--accent);
+      border-bottom: none;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.75);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #ffffff; text-decoration: none; }
+
+    /* ── Layout ── */
+    .page {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      position: sticky;
+      top: 70px;
+      background: var(--accent);
+      border-radius: 12px;
+      padding: 28px 20px;
+      color: #fff;
+    }
+    .sidebar-name {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+    .sidebar-role {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2px;
+    }
+    .sidebar-inst {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.15s;
+    }
+    .sidebar-link:hover { color: #ffffff; text-decoration: none; }
+    .sidebar-link svg { flex-shrink: 0; opacity: 0.8; }
+
+    .avatar-wrap {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .avatar-placeholder {
+      font-family: var(--ff-serif);
+      font-size: 2.2rem;
+      color: rgba(255,255,255,0.75);
+      user-select: none;
+    }
+
+    /* ── Main ── */
+    main { min-width: 0; }
+
+    section { margin-bottom: 56px; }
+
+    .section-label {
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* About */
+    .about-text p {
+      margin-bottom: 14px;
+      color: var(--ink-muted);
+      text-align: justify;
+    }
+    .about-text strong { color: var(--ink); font-weight: 600; }
+
+    .interests-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--ink-faint);
+      margin: 24px 0 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      padding: 4px 12px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* Publications */
+    .pub-group { margin-bottom: 36px; }
+    .pub-group-title {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+    }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:first-child { border-top: 1px solid var(--border); }
+    .pub-year {
+      font-family: var(--ff-serif);
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+      padding-top: 2px;
+    }
+    .pub-body {}
+    .pub-title {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .pub-title a { color: var(--ink); }
+    .pub-title a:hover { color: var(--accent); }
+    .pub-authors {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+    .pub-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pub-venue {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .pub-status {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .status-review  { background: #fef3c7; color: var(--status-under); }
+    .status-submit  { background: #f3f4f6; color: var(--status-sub); }
+    .status-accept  { background: #dcfce7; color: var(--status-acc); }
+
+    /* Portfolio / Work */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .work-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: var(--surface);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .work-card:hover {
+      border-color: #bbb;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .work-card-date {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--ink-faint);
+      margin-bottom: 8px;
+    }
+    .work-card-title {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .work-card-desc {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .work-card-tools {
+      font-size: 0.72rem;
+      font-family: monospace;
+      color: var(--ink-faint);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+    }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      .page {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 32px;
+      }
+      .sidebar {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .sidebar-links { align-items: center; }
+      .nav-links { gap: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Ankrah Sachiel Adom Junior</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#work">Work</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="avatar-wrap">
+  <img src="IMG_0946.jpg" alt="Ankrah Sachiel Adom Junior" style="width:100%;height:100%;object-fit:cover">
+    </div>
+
+    <p class="sidebar-name">Ankrah Sachiel Adom Junior</p>
+    <p class="sidebar-role">MSc Student</p>
+    <p class="sidebar-inst">Chungbuk National University</p>
+
+    <div class="sidebar-links">
+      <!-- Email -->
+      <a class="sidebar-link" href="sachielankrah@chungbuk.ac.kr">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+      <!-- LinkedIn -->
+      <a class="sidebar-link" href="https://www.linkedin.com/in/sachiel-adom-junior-ankrah-14a3111a3" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <!-- Google Scholar -->
+      <a class="sidebar-link" href="https://scholar.google.com/citations?hl=en&user=Wi3ED_8AAAAJ" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Google Scholar
+      </a>
+      <!-- GitHub -->
+      <a class="sidebar-link" href="https://github.com/adm04inc/Sachiel-Inc." target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        GitHub
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- About -->
+    <section id="about">
+      <p class="section-label">About</p>
+      <div class="about-text">
+        <p>
+          I am an <strong>Msc student in Architectural Engineering</strong> at <strong>Chungbuk National University, South Korea</strong>, where I work as a Graduate Research Assistant in the <strong>Smart Constructions and Systems Laboratory (SCS Lab)</strong> under the supervision of <strong>Prof. Minkoo Kim</strong>. My research focuses on construction safety, particularly the assessment of workers' responses to fall-from-height hazards using immersive virtual reality (VR) environments and physiological monitoring technologies. I am interested in understanding risk perception, habituation to workplace hazards, and the application of human-centered technologies to improve safety performance in construction environments.
+        </p>
+        <p>
+          My work involves the design and development of VR-based experimental platforms, the collection and analysis of physiological data, and the application of machine learning techniques to evaluate workers' cognitive and emotional responses to safety-critical situations.
+        </p>
+        <p>
+          Prior to joining CBNU, I earned a <strong>BSc in Civil Engineering</strong> from the<strong>University of Energy and Natural Resources (UENR), Ghana</strong>, where I also served as a Research and Teaching Assistant, and gained professional experience as a Site Engineer.
+        </p>
+      </div>
+
+      <p class="interests-label">Research Interests</p>
+      <div class="tags">
+        <span class="tag">Construction Safety</span>
+        <span class="tag">Virtual Reality (VR)</span>
+        <span class="tag">Physiological Monitoring</span>
+        <span class="tag">Human Factors in Construction</span>
+        <span class="tag">Machine Learning</span>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <p class="section-label">Publications</p>
+
+      <div class="pub-group">
+        <p class="pub-group-title">Journal Articles</p>
+
+        <div class="pub-item">
+          <span class="pub-year">2026</span>
+          <div class="pub-body">
+            <p class="pub-title">Assessment of Construction Worker Habituation to Fall-From-Height (FFH) Risk Using Multi-Physiological Data and Virtual Reality</p>
+            <p class="pub-authors">Ankrah, S.A.J, Duorinaah, F.X, Won, J.H, Kim, M.</p>
+            <div class="pub-meta">
+              <span class="pub-venue">Automation in Construction</span>
+              <span class="pub-status status-review">Under Review</span>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="pub-group">
+        <p class="pub-group-title">Conference Papers</p>
+
+        <div class="pub-item">
+          <span class="pub-year">2025</span>
+          <div class="pub-body">
+            <p class="pub-title"><a href="#">Identifying Habituation of Construction Workers to Fall-From-Height Risk Using Multi-Physiological Data and Virtual Reality</a></p>
+            <p class="pub-authors">Ankrah, S.A.J, Duorinaah, F.X, Kim, M.</p>
+            <div class="pub-meta">
+              <span class="pub-venue">11th International Conference on Construction Engineering and Project Management (ICCEPM 2025), Jeju, South Korea</span>
+              <span class="pub-status status-accept">Accepted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-year">2026</span>
+          <div class="pub-body">
+            <p class="pub-title">Investigating the Effects of Personality Traits on Fall-from-Height Risk Habituation Using Wearable Sensing and Virtual Reality</p>
+            <p class="pub-authors">Ankrah, S.A.J, Duorinaah, F.X, Rajendran, M., Kim, M.</p>
+            <div class="pub-meta">
+              <span class="pub-venue">International Conference on Computing in Civil Engineering (I3CE 2026), Incheon, South Korea</span>
+              <span class="pub-status status-submit"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more conference papers here -->
+      </div>
+    </section>
+
+    <!-- Portfolio / Work -->
+    <section id="work">
+      <p class="section-label">Work &amp; Projects</p>
+      <div class="work-grid">
+
+        <div class="work-card">
+          <p class="work-card-date">2024 – Present</p>
+          <h3 class="work-card-title">Project One Title</h3>
+          <p class="work-card-desc">
+            Describe what this project is, what problem it addresses, and what you built or found. Keep it concise — 2–3 sentences.
+          </p>
+          <p class="work-card-tools">Tools: Python, PyTorch, Tool C</p>
+        </div>
+
+        <div class="work-card">
+          <p class="work-card-date">2023 – 2024</p>
+          <h3 class="work-card-title">Project Two Title</h3>
+          <p class="work-card-desc">
+            Another project description. What did you build, what technique did you use, and what was the outcome?
+          </p>
+          <p class="work-card-tools">Tools: R, MATLAB, Tool D</p>
+        </div>
+
+        <div class="work-card">
+          <p class="work-card-date">2023</p>
+          <h3 class="work-card-title">Project Three Title</h3>
+          <p class="work-card-desc">
+            A third project. Feel free to add or remove cards to match your actual work.
+          </p>
+          <p class="work-card-tools">Tools: Revit, AutoCAD, Tool E</p>
+        </div>
+
+        <!-- Add more cards here -->
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 Ankrah Sachiel Adom Junior · Built with HTML &amp; CSS</p>
+</footer>
+
+</body>
+</html>
