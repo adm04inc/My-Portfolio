@@ -123,8 +123,9 @@
     }
     .sidebar-links {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px 16px;
     }
     .sidebar-link {
       display: flex;
@@ -349,7 +350,6 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#publications">Publications</a></li>
-      <li><a href="#work">Work</a></li>
     </ul>
   </div>
 </nav>
@@ -359,7 +359,7 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="avatar-wrap">
-  <img src="IMG_0946.jpg" alt="Ankrah Sachiel Adom Junior" style="width:100%;height:100%;object-fit:cover">
+  <img src="profilepic.jpg" alt="Ankrah Sachiel Adom Junior" style="width:100%;height:100%;object-fit:cover">
     </div>
 
     <p class="sidebar-name">Ankrah Sachiel Adom Junior</p>
@@ -368,7 +368,7 @@
 
     <div class="sidebar-links">
       <!-- Email -->
-      <a class="sidebar-link" href="sachielankrah@chungbuk.ac.kr">
+      <a class="sidebar-link" href="mailto:sachielankrah@chungbuk.ac.kr">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Email
       </a>
@@ -471,41 +471,6 @@
       </div>
     </section>
 
-    <!-- Portfolio / Work -->
-    <section id="work">
-      <p class="section-label">Work &amp; Projects</p>
-      <div class="work-grid">
-
-        <div class="work-card">
-          <p class="work-card-date">2024 – Present</p>
-          <h3 class="work-card-title">Project One Title</h3>
-          <p class="work-card-desc">
-            Describe what this project is, what problem it addresses, and what you built or found. Keep it concise — 2–3 sentences.
-          </p>
-          <p class="work-card-tools">Tools: Python, PyTorch, Tool C</p>
-        </div>
-
-        <div class="work-card">
-          <p class="work-card-date">2023 – 2024</p>
-          <h3 class="work-card-title">Project Two Title</h3>
-          <p class="work-card-desc">
-            Another project description. What did you build, what technique did you use, and what was the outcome?
-          </p>
-          <p class="work-card-tools">Tools: R, MATLAB, Tool D</p>
-        </div>
-
-        <div class="work-card">
-          <p class="work-card-date">2023</p>
-          <h3 class="work-card-title">Project Three Title</h3>
-          <p class="work-card-desc">
-            A third project. Feel free to add or remove cards to match your actual work.
-          </p>
-          <p class="work-card-tools">Tools: Revit, AutoCAD, Tool E</p>
-        </div>
-
-        <!-- Add more cards here -->
-      </div>
-    </section>
 
   </main>
 </div>
